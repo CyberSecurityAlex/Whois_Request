@@ -23,7 +23,7 @@ def send_email():
     main = "Check log files in thiw day and the previous one!"
     msg.attach(MIMEText(main, 'plain'))
     attachment = MIMEText(json.dumps(data))
-    attachment.add_header('Content-Disposition' , 'attachment' , filename = "Records.json")
+    attachment.add_header('Content-Disposition' , 'attachment' , filename = "Updated_info.json")
     msg.attach(attachment)
     mail = smtplib.SMTP('smtp.mailtrap.io", 2525')
     mail.send_message(msg)
