@@ -125,18 +125,18 @@ def Task():
     else:
         send_email()
         
-    initial_data_from_whoisxmlapi.creation_date = update_from_whoisxmlapi.creation_date
-    initial_data_from_whoisxmlapi.updated_date = update_from_whoisxmlapi.updated_date
-    initial_data_from_whoisxmlapi.expiration_date =update_from_whoisxmlapi.expiration_date
-    initial_data_from_whoisxmlapi.emails = update_from_whoisxmlapi.emails
-    initial_data_from_webscraping.creation_date = update_from_webscraping.creation_date
-    initial_data_from_webscraping.updated_date = update_from_webscraping.updated_date
-    initial_data_from_webscraping.expiration_date = update_from_webscraping.expiration_date
-    initial_data_from_webscraping.emails = update_from_webscraping.emails
-    initial_data_from_cvedetails.creation_date = update_from_cvedetails.creation_date
-    initial_data_from_cvedetails.updated_date = update_from_cvedetails.updated_date
-    initial_data_from_cvedetails.expiration_date = update_from_cvedetails.expiration_date
-    initial_data_from_cvedetails.emails = update_from_cvedetails.emails
+        initial_data_from_whoisxmlapi.creation_date = update_from_whoisxmlapi.creation_date
+        initial_data_from_whoisxmlapi.updated_date = update_from_whoisxmlapi.updated_date
+        initial_data_from_whoisxmlapi.expiration_date =update_from_whoisxmlapi.expiration_date
+        initial_data_from_whoisxmlapi.emails = update_from_whoisxmlapi.emails
+        initial_data_from_webscraping.creation_date = update_from_webscraping.creation_date
+        initial_data_from_webscraping.updated_date = update_from_webscraping.updated_date
+        initial_data_from_webscraping.expiration_date = update_from_webscraping.expiration_date
+        initial_data_from_webscraping.emails = update_from_webscraping.emails
+        initial_data_from_cvedetails.creation_date = update_from_cvedetails.creation_date
+        initial_data_from_cvedetails.updated_date = update_from_cvedetails.updated_date
+        initial_data_from_cvedetails.expiration_date = update_from_cvedetails.expiration_date
+        initial_data_from_cvedetails.emails = update_from_cvedetails.emails
 
 schedule.every(24).hours.do(Task)
 while 1:
