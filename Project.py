@@ -89,6 +89,7 @@ def Task():
     update_from_cvedetails.updated_date
     update_from_cvedetails.expiration_date
     update_from_cvedetails.emails
+    #Create email attachment as "Updated_info.json and write any changes from requests day by day
     File2= open('Updated_info.json' , "w")
     if initial_data_from_whoisxmlapi.creation_date != update_from_whoisxmlapi.creation_date:
         File2.write(update_from_whoisxmlapi.creation_date)
@@ -115,26 +116,27 @@ def Task():
     if initial_data_from_cvedetails.emails != update_from_cvedetails.emails:
         File2.write(update_from_cvedetails.emails)
         File2.close()
-
+        
     Record = open(Date + '.json' , "r")
     File2= open('Updated_info.json' , "r")
     Comparison = filecmp.cmp(Date + '.json' , 'Updated_info.json')
     if True:
         print("NO CHANGES TODAY...")
     else:
-
-        initial_data_from_whoisxmlapi.creation_date = update_from_whoisxmlapi.creation_date
-        initial_data_from_whoisxmlapi.updated_date = update_from_whoisxmlapi.updated_date
-        initial_data_from_whoisxmlapi.expiration_date =update_from_whoisxmlapi.expiration_date
-        initial_data_from_whoisxmlapi.emails = update_from_whoisxmlapi.emails
-        initial_data_from_webscraping.creation_date = update_from_webscraping.creation_date
-        initial_data_from_webscraping.updated_date = update_from_webscraping.updated_date
-        initial_data_from_webscraping.expiration_date = update_from_webscraping.expiration_date
-        initial_data_from_webscraping.emails = update_from_webscraping.emails
-        initial_data_from_cvedetails.creation_date = update_from_cvedetails.creation_date
-        initial_data_from_cvedetails.updated_date = update_from_cvedetails.updated_date
-        initial_data_from_cvedetails.expiration_date = update_from_cvedetails.expiration_date
-        initial_data_from_cvedetails.emails = update_from_cvedetails.emails
+        send_email()
+        
+    initial_data_from_whoisxmlapi.creation_date = update_from_whoisxmlapi.creation_date
+    initial_data_from_whoisxmlapi.updated_date = update_from_whoisxmlapi.updated_date
+    initial_data_from_whoisxmlapi.expiration_date =update_from_whoisxmlapi.expiration_date
+    initial_data_from_whoisxmlapi.emails = update_from_whoisxmlapi.emails
+    initial_data_from_webscraping.creation_date = update_from_webscraping.creation_date
+    initial_data_from_webscraping.updated_date = update_from_webscraping.updated_date
+    initial_data_from_webscraping.expiration_date = update_from_webscraping.expiration_date
+    initial_data_from_webscraping.emails = update_from_webscraping.emails
+    initial_data_from_cvedetails.creation_date = update_from_cvedetails.creation_date
+    initial_data_from_cvedetails.updated_date = update_from_cvedetails.updated_date
+    initial_data_from_cvedetails.expiration_date = update_from_cvedetails.expiration_date
+    initial_data_from_cvedetails.emails = update_from_cvedetails.emails
 
 schedule.every(24).hours.do(Task)
 while 1:
