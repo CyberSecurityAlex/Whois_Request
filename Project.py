@@ -63,6 +63,7 @@ def Task():
     initial_data_from_cvedetails.updated_date
     initial_data_from_cvedetails.expiration_date
     initial_data_from_cvedetails.emails
+    #With every loop, .json file is called as a different name(identifier->date)
     Present = datetime.datetime.now()
     print (Present.strftime("%Y-%m-%d %H:%M:%S"))
     Date = Present.strftime("%d-%m-%Y %H:%M:%S")
